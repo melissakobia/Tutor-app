@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="false"
+    android:background="#CFCFCF">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/baloo"
+        android:text="@string/app_name"
+        android:textSize="45sp"
+        android:textColor="#000000"/>
+
+
+    <Button
+        android:id="@+id/buttonTutor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:padding="15dp"
+        android:text="@string/tutor"
+        android:background="@color/secondaryColor"
+        android:textColor="@color/secondaryTextColor"
+        android:textSize="30sp"/>
+
+    <Button
+        android:id="@+id/buttonStudent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:layout_below="@id/buttonTutor"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:padding="15dp"
+        android:text="@string/student"
+        android:background="@color/secondaryColor"
+        android:textColor="@color/secondaryTextColor"
+        android:textSize="30sp"/>
+</RelativeLayout>
