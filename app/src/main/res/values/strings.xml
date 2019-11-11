@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Tutor4You</string>
+    <string name="app_name">TUTOR4YOU</string>
+    <string name="tutor">TUTOR</string>
+    <string name="student">STUDENT</string>
 </resources>
