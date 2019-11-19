@@ -2,6 +2,7 @@ package com.example.tutor4you;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 
 import android.content.Intent;
@@ -31,18 +32,25 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 
 public class LoginActivity extends AppCompatActivity {
+
 
     public static final int LINKEDIN_REQUEST = 100;
     public static String clientID;
     public static String clientSecret;
     public static String redirectUrl;
 
-    private ImageView ivUserPic;
-    private  Button btnLogin;
-    private Button btnGetUpdatedInfo;
-    private TextView tvFName, tvLName, tvEmail;
+    @BindView(R.id.myCardView) CardView mCardView;
+    @BindView(R.id.iv_user_pic) ImageView ivUserPic;
+    @BindView(R.id.btn_login) Button btnLogin;
+    @BindView(R.id.tv_first_name) TextView tvFName;
+    @BindView(R.id.btn_get_update) Button btnGetUpdatedInfo;
+    @BindView(R.id.tv_last_name) TextView tvLName;
+    @BindView(R.id.tv_email) TextView tvEmail;
 
     private String accessToken;
     private long accessTokenExpiry;
@@ -51,15 +59,10 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        ButterKnife.bind(this);
 
         getCredentials();
 
-
-        ivUserPic = findViewById(R.id.iv_user_pic);
-        btnLogin = findViewById(R.id.btn_login);
-        tvFName = findViewById(R.id.tv_first_name);
-        tvLName = findViewById(R.id.tv_last_name);
-        tvEmail = findViewById(R.id.tv_email);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,7 +77,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        btnGetUpdatedInfo = findViewById(R.id.btn_get_update);
         btnGetUpdatedInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,9 +108,6 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    /**
-     * Sets data to UI
-     */
     private void setUserData(LinkedInUser user) {
         accessToken = user.getAccessToken();
         accessTokenExpiry = user.getAccessTokenExpiry();
@@ -120,6 +119,8 @@ public class LoginActivity extends AppCompatActivity {
         tvEmail.setText(user.getEmail());
 
         btnGetUpdatedInfo.setVisibility(View.VISIBLE);
+        btnLogin.setVisibility(View.INVISIBLE);
+        mCardView.setVisibility(View.VISIBLE);
 
         if(user.getProfileUrl()!= null && !user.getProfileUrl().isEmpty()){
             new ImageLoadTask(user.getProfileUrl(), ivUserPic).execute();
@@ -161,9 +162,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    /**
-     * Loads Image from url in image view, you might want to use a library like picasso or glide
-     */
     public class ImageLoadTask extends AsyncTask<Void, Void, Bitmap> {
 
         private String url;
@@ -198,13 +196,6 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-
-    /**
-     *
-     * This Method just for demonstration purpose only, you are free to use any technique to keep your credentials secure
-     * If you want to use this method, just rename the linkedin-credentials-example.json file to linkedin-credentials.json
-     * Make sure to update your linkedin credentials in the said file
-     */
     private void getCredentials() {
         try {
 
