@@ -9,4 +9,9 @@
     <color name="primaryTextColor">#ffffff</color>
     <color name="secondaryTextColor">#ffffff</color>
     <color name="buttonColor">#ffffff</color>
+    <color name="black_transparent">#14000000</color>
+    <color name="black_transparent_image">#46000000</color>
+    <color name="start_color">#ff2d9a59</color>
+    <color name="end_color">#ff23729a</color>
+    <color name="teal">#009090</color>
 </resources>
