@@ -65,15 +65,7 @@ public class DashboardListAdapter extends RecyclerView.Adapter<DashboardListAdap
         @Override
         public void onClick(View v) {
             if (stringList.get(getAdapterPosition()).equals("My Calendar")) {
-                Intent calendarIntent = new Intent(Intent.ACTION_INSERT, CalendarContract.Events.CONTENT_URI);
-                Calendar beginTime = Calendar.getInstance();
-                beginTime.set(2012, 0, 19, 7, 30);
-                Calendar endTime = Calendar.getInstance();
-                endTime.set(2012, 0, 19, 10, 30);
-                calendarIntent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, beginTime.getTimeInMillis());
-                calendarIntent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, endTime.getTimeInMillis());
-                calendarIntent.putExtra(CalendarContract.Events.TITLE, "Social Development Class");
-                calendarIntent.putExtra(CalendarContract.Events.EVENT_LOCATION, "Online");
+
 
             }
 

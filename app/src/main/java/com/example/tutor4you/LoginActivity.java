@@ -16,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.tutor4you.ui.MainActivity;
+import com.example.tutor4you.ui.TutorDashboardActivity;
 import com.shantanudeshmukh.linkedinsdk.helpers.LinkedInUser;
 import com.shantanudeshmukh.linkedinsdk.helpers.OnBasicProfileListener;
 import com.shantanudeshmukh.linkedinsdk.LinkedInBuilder;
@@ -77,6 +79,9 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
+
                 LinkedInBuilder.retrieveBasicProfile(accessToken, accessTokenExpiry, new OnBasicProfileListener() {
                     @Override
                     public void onDataRetrievalStart() {
@@ -86,6 +91,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onDataSuccess(LinkedInUser user) {
                         setUserData(user);
+
                     }
 
                     @Override
