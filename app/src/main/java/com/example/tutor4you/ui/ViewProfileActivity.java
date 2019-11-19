@@ -1,10 +1,12 @@
-package com.example.tutor4you;
+package com.example.tutor4you.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import com.example.tutor4you.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

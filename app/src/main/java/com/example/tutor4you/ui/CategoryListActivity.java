@@ -1,4 +1,4 @@
-package com.example.tutor4you;
+package com.example.tutor4you.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,9 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.tutor4you.CategoriesArrayAdapter;
+import com.example.tutor4you.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
