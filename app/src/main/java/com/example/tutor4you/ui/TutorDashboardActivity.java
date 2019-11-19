@@ -10,6 +10,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -26,17 +27,21 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class TutorDashboardActivity extends AppCompatActivity {
+public class TutorDashboardActivity extends AppCompatActivity implements View.OnClickListener {
     @BindView(R.id.dashboardRecyclerView) RecyclerView mRecyclerView;
     @BindView(R.id.first_name_textView) TextView firstName;
     @BindView(R.id.last_name_textView) TextView lastName;
     @BindView(R.id.email_textView) TextView email;
     @BindView(R.id.tutorImageView) ImageView profilePic;
+    @BindView(R.id.tutorCalendarImageView) ImageView calendar;
+    @BindView(R.id.tutorLogoutImageView) ImageView logout;
+    @BindView(R.id.tutorProfileImageView) ImageView profile;
 
     public static final int LINKEDIN_REQUEST = 100;
     private String accessToken;
@@ -63,6 +68,10 @@ public class TutorDashboardActivity extends AppCompatActivity {
         stringList.add("My Students");
         stringList.add("My Calendar");
         stringList.add("My Requests");
+
+        profile.setOnClickListener(this);
+        logout.setOnClickListener(this);
+        calendar.setOnClickListener(this);
 
     }
 
@@ -113,6 +122,33 @@ public class TutorDashboardActivity extends AppCompatActivity {
             }
         }
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v == calendar) {
+            Intent calendarIntent = new Intent(Intent.ACTION_INSERT, CalendarContract.Events.CONTENT_URI);
+            Calendar beginTime = Calendar.getInstance();
+            beginTime.set(2012, 0, 19, 7, 30);
+            Calendar endTime = Calendar.getInstance();
+            endTime.set(2012, 0, 19, 10, 30);
+            calendarIntent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, beginTime.getTimeInMillis());
+            calendarIntent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, endTime.getTimeInMillis());
+            calendarIntent.putExtra(CalendarContract.Events.TITLE, "Social Development Class");
+            calendarIntent.putExtra(CalendarContract.Events.EVENT_LOCATION, "Online");
+            startActivity(calendarIntent);
+
+        }
+
+        else if (v == profile) {
+            Intent intent = new Intent(TutorDashboardActivity.this,ProfileActivity.class);
+            startActivity(intent);
+        }
+
+        else if (v == logout ) {
+            Intent intent = new Intent(TutorDashboardActivity.this,MainActivity.class);
+            startActivity(intent);
+        }
     }
 
 
