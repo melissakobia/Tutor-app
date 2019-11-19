@@ -32,7 +32,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
-
+        android:text="Welcome Tutor"
+        android:textSize="25sp"
         android:textColor="@color/secondaryTextColor"
         android:layout_below="@+id/myCardView"/>
 
@@ -108,8 +109,8 @@
                 android:layout_marginRight="40dp">
 
                 <ImageView
-                    android:id="@+id/tutorPasswordImageView"
-                    app:srcCompat="@drawable/ic_lock_teal_24dp"
+                    android:id="@+id/tutorCalendarImageView"
+                    app:srcCompat="@drawable/ic_date_range_black_24dp"
                     android:scaleType="centerCrop"
                     android:layout_gravity="center"
                     android:layout_height="60dp"
@@ -124,7 +125,7 @@
                 android:gravity="center"
                 android:layout_marginTop="8dp"
                 android:textColor="@color/secondaryTextColor"
-                android:text="Change Password" />
+                android:text="My Calendar" />
 
         </LinearLayout>
 
