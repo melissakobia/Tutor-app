@@ -61,6 +61,7 @@
                     android:text="Hello! I am a Tutor"
                     android:textSize="20sp"
                     android:textColor="@color/secondaryTextColor"
+                    android:fontFamily="@font/amaranth"
                     android:layout_marginTop="15dp"
                     android:layout_marginLeft="20dp"/>
 
@@ -68,6 +69,7 @@
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/amaranth"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="15dp"
                     android:textColor="@color/secondaryTextColor"
@@ -95,6 +97,7 @@
                         android:layout_marginTop="30dp"
                         android:layout_marginLeft="100dp"
                         android:layout_marginRight="10dp"
+                        android:fontFamily="@font/amaranth"
                         android:elevation="10dp"
                         android:text="@string/tutor"
                         android:backgroundTint="@color/buttonColor"
@@ -134,6 +137,7 @@
                     android:layout_height="wrap_content"
                     android:text="Hello! I am a Student"
                     android:textSize="20sp"
+                    android:fontFamily="@font/amaranth"
                     android:textColor="@color/secondaryTextColor"
                     android:layout_marginTop="15dp"
                     android:layout_marginLeft="20dp"/>
@@ -143,6 +147,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    android:fontFamily="@font/amaranth"
                     android:layout_marginBottom="15dp"
                     android:textColor="@color/secondaryTextColor"
                     android:layout_marginLeft="20dp"
@@ -151,8 +156,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    >
+                    android:orientation="horizontal">
 
 
                     <ImageView
@@ -168,6 +172,7 @@
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="30dp"
+                        android:fontFamily="@font/amaranth"
                         android:layout_marginLeft="100dp"
                         android:layout_marginRight="10dp"
                         android:elevation="10dp"

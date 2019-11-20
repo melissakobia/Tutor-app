@@ -1,9 +1,6 @@
 package com.example.tutor4you.ui;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -11,17 +8,11 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.CalendarContract;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.tutor4you.LoginActivity;
 import com.example.tutor4you.R;
-import com.example.tutor4you.adapters.DashboardListAdapter;
-import com.shantanudeshmukh.linkedinsdk.LinkedInBuilder;
-import com.shantanudeshmukh.linkedinsdk.helpers.LinkedInUser;
 
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -58,7 +49,7 @@ public class TutorDashboardActivity extends AppCompatActivity implements View.On
         stringList = new ArrayList<>();
 
 
-//        DashboardListAdapter adapter = new DashboardListAdapter(stringList);
+//        EducationListAdapter adapter = new EducationListAdapter(stringList);
 //        mRecyclerView.setAdapter(adapter);
 //
 //        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);

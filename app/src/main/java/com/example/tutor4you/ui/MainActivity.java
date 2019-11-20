@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.tutor4you.EducationLevelActivity;
 import com.example.tutor4you.LoginActivity;
 import com.example.tutor4you.R;
 import com.shantanudeshmukh.linkedinsdk.LinkedInBuilder;
@@ -59,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         }
         else if (v == mButtonStudent) {
-            Intent intent = new Intent(MainActivity.this, CategoryListActivity.class);
+            Intent intent = new Intent(MainActivity.this, EducationLevelActivity.class);
             startActivity(intent);
         }
 

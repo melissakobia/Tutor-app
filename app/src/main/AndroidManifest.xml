@@ -4,7 +4,6 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon_graduation"
@@ -12,20 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/NewTheme">
-        <activity android:name=".ui.DashboardDetailActivity"></activity>
+        <activity android:name=".EducationLevelActivity"></activity>
+        <activity android:name=".ui.DashboardDetailActivity" />
         <activity
             android:name=".ui.TutorDashboardActivity"
+            android:theme="@style/NoActionBarTheme"></activity>
+        <activity
+            android:name=".LoginActivity"
             android:theme="@style/NoActionBarTheme">
-        </activity>
-        <activity android:name=".LoginActivity"
-            android:theme="@style/NoActionBarTheme">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity android:name=".ui.ViewProfileActivity">
             <meta-data
@@ -44,8 +42,7 @@
         </activity>
         <activity
             android:name=".ui.MainActivity"
-            android:theme="@style/NoActionBarTheme">
-        </activity>
+            android:theme="@style/NoActionBarTheme"></activity>
 
         <meta-data
             android:name="preloaded_fonts"

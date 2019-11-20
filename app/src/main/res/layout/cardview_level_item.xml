@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+
+    android:layout_width="150dp"
+    android:layout_height="150dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="6dp"
+    android:layout_margin="10dp"
+    android:id="@+id/cardView_id"
+    app:cardElevation="@dimen/cardview_default_elevation"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:backgroundTint="@color/black_transparent_image">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/listImageView"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center"
+            android:layout_height="120dp"
+            android:layout_width="120dp"/>
+
+
+        <TextView
+            android:id="@+id/textViewList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="3"
+            android:fontFamily="@font/amaranth"
+            android:gravity="center_horizontal"
+            android:text="Change Password"
+            android:textSize="15sp"
+            android:textColor="@color/secondaryTextColor"/>
+
+
+    </LinearLayout>
+
+
+
+</androidx.cardview.widget.CardView>
