@@ -1,16 +1,18 @@
 package com.example.tutor4you.ui;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
-import com.example.tutor4you.EducationLevelActivity;
-import com.example.tutor4you.LoginActivity;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.tutor4you.R;
 import com.shantanudeshmukh.linkedinsdk.LinkedInBuilder;
+import com.shantanudeshmukh.linkedinsdk.helpers.LinkedInUser;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,7 +30,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static String clientID;
     public static String clientSecret;
     public static String redirectUrl;
-
 
 
     @BindView(R.id.buttonStudent) Button mButtonStudent;
@@ -55,9 +56,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     .setRedirectURI(redirectUrl)
                     .authenticate(LINKEDIN_REQUEST);
 
-
-            Intent intent =new Intent(MainActivity.this, TutorDashboardActivity.class);
-            startActivity(intent);
         }
         else if (v == mButtonStudent) {
             Intent intent = new Intent(MainActivity.this, EducationLevelActivity.class);
@@ -66,6 +64,51 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+
+
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == LINKEDIN_REQUEST && data != null) {
+            if (resultCode == RESULT_OK) {
+
+                //Successfully signed in and retrieved data
+                LinkedInUser user = data.getParcelableExtra("social_login");
+                String firstName = user.getFirstName();
+                String lastName = user.getLastName();
+                String email = user.getEmail();
+                String url = user.getProfileUrl();
+
+                Toast.makeText(MainActivity.this,firstName + lastName,Toast.LENGTH_LONG).show();
+
+                Intent intent =new Intent(MainActivity.this, TutorDashboardActivity.class);
+                intent.putExtra("firstName", firstName);
+                intent.putExtra("lastName", lastName);
+                intent.putExtra("email", email);
+                intent.putExtra("url", url);
+                startActivity(intent);
+
+            } else {
+
+
+                //print the error
+                Log.wtf("LINKEDIN ERR", data.getStringExtra("err_message"));
+
+                if (data.getIntExtra("err_code", 0) == LinkedInBuilder.ERROR_USER_DENIED) {
+                    //user denied access to account
+                    Toast.makeText(this, "User Denied Access", Toast.LENGTH_SHORT).show();
+                } else if (data.getIntExtra("err_code", 0) == LinkedInBuilder.ERROR_USER_DENIED) {
+                    //some error occured
+                    Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show();
+                }
+
+
+            }
+        }
+
+    }
 
 
     private void getCredentials() {

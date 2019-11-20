@@ -1,4 +1,4 @@
-package com.example.tutor4you;
+package com.example.tutor4you.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.example.tutor4you.R;
 import com.example.tutor4you.adapters.EducationListAdapter;
 import com.example.tutor4you.models.EducationLevel;
 

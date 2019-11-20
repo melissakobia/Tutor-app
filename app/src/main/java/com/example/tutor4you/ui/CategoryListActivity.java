@@ -9,7 +9,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.tutor4you.CategoriesArrayAdapter;
+import com.example.tutor4you.adapters.CategoriesArrayAdapter;
 import com.example.tutor4you.R;
 
 import butterknife.BindView;

@@ -8,11 +8,13 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.CalendarContract;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.tutor4you.R;
+import com.shantanudeshmukh.linkedinsdk.helpers.LinkedInUser;
 
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -25,18 +27,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class TutorDashboardActivity extends AppCompatActivity implements View.OnClickListener {
-    //@BindView(R.id.dashboardRecyclerView) RecyclerView mRecyclerView;
-    @BindView(R.id.first_name_textView) TextView firstName;
-    @BindView(R.id.last_name_textView) TextView lastName;
-    @BindView(R.id.email_textView) TextView email;
+    @BindView(R.id.first_name_textView) TextView firstName_tv;
+    @BindView(R.id.email_textView) TextView email_tv;
     @BindView(R.id.tutorImageView) ImageView profilePic;
     @BindView(R.id.tutorCalendarImageView) ImageView calendar;
     @BindView(R.id.tutorLogoutImageView) ImageView logout;
     @BindView(R.id.tutorProfileImageView) ImageView profile;
 
-    public static final int LINKEDIN_REQUEST = 100;
-    private String accessToken;
-    private long accessTokenExpiry;
 
     List<String> stringList;
 
@@ -46,14 +43,11 @@ public class TutorDashboardActivity extends AppCompatActivity implements View.On
         setContentView(R.layout.activity_tutor_dashboard);
         ButterKnife.bind(this);
 
+        LinkedInUser user = new LinkedInUser();
+        setUserData(user);
+
+
         stringList = new ArrayList<>();
-
-
-//        EducationListAdapter adapter = new EducationListAdapter(stringList);
-//        mRecyclerView.setAdapter(adapter);
-//
-//        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
-//        mRecyclerView.addItemDecoration(dividerItemDecoration);
 
         stringList.add("My Subjects");
         stringList.add("My Students");
@@ -91,6 +85,22 @@ public class TutorDashboardActivity extends AppCompatActivity implements View.On
         else if (v == logout ) {
             Intent intent = new Intent(TutorDashboardActivity.this,MainActivity.class);
             startActivity(intent);
+        }
+    }
+
+    private void setUserData(LinkedInUser user) {
+        Intent intent = getIntent();
+
+        String firstName = intent.getStringExtra("firstName");
+        String lastName = intent.getStringExtra("lastName");
+        firstName_tv.setText(firstName + " " + lastName);
+        String email = intent.getStringExtra("email");
+        email_tv.setText(email);
+        String url =intent.getStringExtra("url");
+
+
+        if(url!= null && !url.isEmpty()){
+            new TutorDashboardActivity.ImageLoadTask(url, profilePic).execute();
         }
     }
 
