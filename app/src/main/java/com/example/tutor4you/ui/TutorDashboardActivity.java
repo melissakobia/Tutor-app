@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.tutor4you.R;
 import com.shantanudeshmukh.linkedinsdk.helpers.LinkedInUser;
@@ -78,8 +79,12 @@ public class TutorDashboardActivity extends AppCompatActivity implements View.On
         }
 
         else if (v == profile) {
-            Intent intent = new Intent(TutorDashboardActivity.this,ProfileActivity.class);
-            startActivity(intent);
+            Intent profile_intent = new Intent(TutorDashboardActivity.this,ProfileActivity.class);
+            Intent intent = getIntent();
+            String tutorProfileUrl =intent.getStringExtra("url");
+            intent.putExtra("tutorProfileUrl", tutorProfileUrl);
+            Toast.makeText(this, tutorProfileUrl, Toast.LENGTH_LONG).show();
+            startActivity(profile_intent);
         }
 
         else if (v == logout ) {
@@ -97,6 +102,11 @@ public class TutorDashboardActivity extends AppCompatActivity implements View.On
         String email = intent.getStringExtra("email");
         email_tv.setText(email);
         String url =intent.getStringExtra("url");
+
+
+
+
+
 
 
         if(url!= null && !url.isEmpty()){

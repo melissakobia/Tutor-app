@@ -3,6 +3,34 @@
     <string name="tutor">TUTOR</string>
     <string name="student">STUDENT</string>
 
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="spinner_gender">Gender</string>
+
+    <string-array name="gender_array">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
+    <string name="spinner_specialization">Area of Specialization</string>
+
+    <string-array name="specialization_array">
+        <item>Mathematics</item>
+        <item>Languages</item>
+        <item>Music</item>
+        <item>Simple Science</item>
+        <item>Accounting</item>
+        <item>Biology</item>
+        <item>Physics</item>
+        <item>Chemistry</item>
+        <item>Religious Education</item>
+        <item>Social Studies</item>
+        <item>Computer Programming</item>
+        <item>Arts and Crafts</item>
+
+    </string-array>
+
+
 </resources>

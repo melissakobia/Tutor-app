@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primaryColor">#00A8A8</color>
-    <color name="primaryLightColor">#00D6D6</color>
-    <color name="primaryDarkColor">#009C9C</color>
-    <color name="secondaryColor">#00D1D1</color>
-<!--    <color name="secondaryLightColor">#534bae</color>-->
-    <color name="secondaryDarkColor">#009090</color>
-    <color name="primaryTextColor">#ffffff</color>
-    <color name="secondaryTextColor">#ffffff</color>
+<!--    <color name="primaryColor">#00A8A8</color>-->
+<!--    <color name="primaryLightColor">#00D6D6</color>-->
+<!--    <color name="primaryDarkColor">#009C9C</color>-->
+<!--    <color name="secondaryColor">#00D1D1</color>-->
+<!--&lt;!&ndash;    <color name="secondaryLightColor">#534bae</color>&ndash;&gt;-->
+<!--    <color name="secondaryDarkColor">#009090</color>-->
+<!--    <color name="primaryTextColor">#ffffff</color>-->
+<!--    <color name="secondaryTextColor">#ffffff</color>-->
     <color name="buttonColor">#ffffff</color>
     <color name="black_transparent">#14000000</color>
     <color name="black_transparent_image">#46000000</color>
     <color name="start_color">#ff2d9a59</color>
     <color name="end_color">#ff23729a</color>
     <color name="teal">#009090</color>
+    <color name="color_log_in">#94019c8f</color>
+    <color name="color_sign_up">#93303f9f</color>
+    <color name="color_grey">#cfcfcf</color>
+    <color name="primaryColor">#0a2141</color>
+    <color name="primaryLightColor">#38486c</color>
+    <color name="primaryDarkColor">#00001b</color>
+    <color name="secondaryColor">#517492</color>
+    <color name="secondaryLightColor">#80a3c2</color>
+    <color name="secondaryDarkColor">#224964</color>
+    <color name="primaryTextColor">#ffffff</color>
+    <color name="secondaryTextColor">#ffffff</color>
 </resources>

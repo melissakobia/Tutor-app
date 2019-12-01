@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.tutor4you.R;
+import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -19,6 +21,7 @@ public class ViewProfileActivity extends AppCompatActivity {
     @BindView(R.id.textViewSpecialization) TextView mSpecializationTextView;
     @BindView(R.id.textViewEducationLevel) TextView mEducationLevelTextView;
     @BindView(R.id.textViewRate) TextView mRateTextView;
+    @BindView(R.id.imageViewProfile) ImageView tutorProfileImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +29,11 @@ public class ViewProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_profile);
         ButterKnife.bind(this);
         Intent intent = getIntent();
+
+        String tutorProfileUrl =intent.getStringExtra("tutorProfileUrl");
+
+
+        Picasso.get().load(tutorProfileUrl).into(tutorProfileImageView);
 
         String tutorName = intent.getStringExtra("tutorName");
         mTutorNameTextView.setText("Name : " + tutorName);

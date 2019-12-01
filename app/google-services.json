@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1080332821999",
+    "firebase_url": "https://tutor4you-6bc3c.firebaseio.com",
+    "project_id": "tutor4you-6bc3c",
+    "storage_bucket": "tutor4you-6bc3c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1080332821999:android:55dc49cb28f7038955c21a",
+        "android_client_info": {
+          "package_name": "com.example.tutor4you"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1080332821999-4s1p7ihkao9a5g7lkfgguuvvg14oo27n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tutor4you",
+            "certificate_hash": "6da6669d4ae0f117e98a6ec77193a1026e8c785f"
+          }
+        },
+        {
+          "client_id": "1080332821999-kuniqfdhs8ua30jl9oam1mpoohtp40di.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiGx5RBiQdSVQFGFH2IJD8GdPsDD6ncU0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1080332821999-kuniqfdhs8ua30jl9oam1mpoohtp40di.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
