@@ -9,7 +9,7 @@
     android:id="@+id/cardView_id"
     app:cardElevation="@dimen/cardview_default_elevation"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:backgroundTint="@color/black_transparent_image">
+    android:backgroundTint="@color/secondaryTextColor">
 
     <LinearLayout
         android:orientation="vertical"
@@ -34,8 +34,7 @@
             android:fontFamily="@font/amaranth"
             android:gravity="center_horizontal"
             android:text="Change Password"
-            android:textSize="15sp"
-            android:textColor="@color/secondaryTextColor"/>
+            android:textSize="15sp"/>
 
 
     </LinearLayout>
