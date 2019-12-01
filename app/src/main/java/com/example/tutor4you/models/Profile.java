@@ -1,25 +1,34 @@
 package com.example.tutor4you.models;
 
+import org.parceler.Parcel;
+
 import java.util.List;
+
+
 
 public class Profile {
     private String  tutorName;
-    private String age;
+    private int age;
     private String gender;
     private String specialization;
     private String educationLevel;
     private int rate;
-    private int Thumbnail;
+    private String tutorProfileUrl;
     List <Profile> profiles;
 
-    public Profile(String tutorName, String age, String gender, String specialization, String educationLevel, int rate) {
+    public Profile() {
+    }
+
+
+
+    public Profile(String tutorName, int age, String gender, String specialization, String educationLevel, int rate, String tutorProfileUrl) {
         this.tutorName = tutorName;
         this.age = age;
         this.gender = gender;
         this.specialization = specialization;
         this.educationLevel = educationLevel;
         this.rate = rate;
-        //profileImages = this.Thumbnail;
+        this.tutorProfileUrl = tutorProfileUrl;
     }
 
     public String getTutorName() {
@@ -30,11 +39,11 @@ public class Profile {
         this.tutorName = tutorName;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
@@ -70,13 +79,14 @@ public class Profile {
         this.rate = rate;
     }
 
-    public int getThumbnail() {
-        return Thumbnail;
+    public String getTutorProfileUrl() {
+        return tutorProfileUrl;
     }
 
-    public void setThumbnail(int thumbnail) {
-        Thumbnail = thumbnail;
+    public void setTutorProfileUrl(String tutorProfileUrl) {
+        this.tutorProfileUrl = tutorProfileUrl;
     }
+
     public Profile getPosition (int position) {
         return profiles.get(position);
 
