@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -91,11 +92,15 @@ public class TutorSearchFragment extends Fragment {
                 holder.setTutorName(profile.getTutorName());
                 holder.setEducationLevel(profile.getEducationLevel());
                 holder.setRate(profile.getRate());
+                holder.setProfileImage(profile.getTutorProfileUrl());
 
             }
         };
 
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+        DividerItemDecoration divider = new DividerItemDecoration(getContext(),DividerItemDecoration.VERTICAL);
+        divider.setDrawable(getContext().getResources().getDrawable(R.drawable.divider));
+        recyclerView.addItemDecoration(divider);
         recyclerView.setAdapter(mFirebaseAdapter);
 
 
