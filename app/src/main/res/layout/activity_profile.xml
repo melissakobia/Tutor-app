@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="CREATE PROFILE"
-        android:fontFamily="@font/baloo"
+        android:fontFamily="@font/amaranth"
         android:textColor="#000000"
         android:textSize="25sp"
         android:layout_alignParentTop="true"
@@ -31,18 +31,45 @@
             android:orientation="vertical"
             android:layout_margin="10dp">
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/myCardView"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    app:cardCornerRadius="60dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="center"
+                    android:layout_centerHorizontal="true">
+
+                    <ImageView
+                        android:id="@+id/tutor_ImageView"
+                        app:srcCompat="@drawable/ic_account_circle_24px"
+                        android:scaleType="centerCrop"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"/>
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/floating_action_buttonCamera"
+                        style="@style/Widget.Design.FloatingActionButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:fabSize="mini"
+                        app:srcCompat="@drawable/ic_camera_alt_white_18dp" />
+
+
+                </androidx.cardview.widget.CardView>
+
+
+            </RelativeLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginRight="5dp"
-                    android:src="@drawable/ic_profile_circle_24px"
-                    android:layout_gravity="center_vertical"/>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/nameTextInputLayout"
@@ -55,7 +82,8 @@
                         android:id="@+id/nameEditText"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="Name" />
+                        android:hint="Enter Your Name"
+                        android:fontFamily="@font/amaranth"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -65,13 +93,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginRight="5dp"
-                    android:src="@drawable/ic_profile_circle_24px"
-                    android:layout_gravity="center_vertical"/>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/ageTextInputLayout"
@@ -82,9 +103,10 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/ageEditText"
+                        android:fontFamily="@font/amaranth"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="Age" />
+                        android:hint="Enter your Age" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -93,38 +115,37 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp">
 
-
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Select Highest Level of Education">
-
-                    <AutoCompleteTextView
-                        android:id="@+id/filled_exposed_dropdown"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/educationLevel3TextInputLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <Spinner
-                    android:id="@+id/spinner1"
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:entries="@array/gender_array"
-                    android:prompt="@string/spinner_gender" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_marginTop="10dp"
+                    android:text="Select Gender"
+                    android:fontFamily="@font/amaranth"
+                    android:layout_marginBottom="5dp" />
 
+                <Spinner
+                    android:id="@+id/spnGender"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:prompt="@string/spinner_gender"
+                    android:entries="@array/gender_array"/>
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Select Area of Specialization"
+                android:fontFamily="@font/amaranth"
+                android:layout_marginBottom="5dp" />
 
 
             <Spinner
@@ -135,65 +156,53 @@
                 android:layout_marginTop="10dp"
                 android:prompt="@string/spinner_specialization" />
 
-            <!--        <com.google.android.material.textfield.TextInputLayout-->
-            <!--            android:id="@+id/specializationTextInputLayoutw"-->
-            <!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
-            <!--            android:layout_width="match_parent"-->
-            <!--            android:layout_height="wrap_content"-->
-            <!--            android:layout_marginLeft="20dp"-->
-            <!--            android:layout_marginRight="20dp"-->
-            <!--            android:layout_marginTop="5dp">-->
 
-            <!--            <com.google.android.material.textfield.TextInputEditText-->
-            <!--                android:id="@+id/specializationEditText"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_marginLeft="20dp"-->
-            <!--                android:layout_marginRight="20dp"-->
-            <!--                android:hint="Area of Specialization"-->
-            <!--                android:padding="10dp"/>-->
-
-            <!--        </com.google.android.material.textfield.TextInputLayout>-->
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/educationLevelTextInputLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="10dp">
+                android:orientation="horizontal">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/educationLevelEditText"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/educationLevelTextInputLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                    app:boxBackgroundColor="@color/secondaryTextColor"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginLeft="20dp"
-                    android:hint="Highest Level of Education"
-                    android:padding="10dp"/>
+                    android:layout_height="wrap_content">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/educationLevelEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Enter Highest Level of Education"
+                        android:fontFamily="@font/amaranth"/>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/rateTextInputLayoutw"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="10dp">
+                android:orientation="horizontal">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/rateEditText"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/rateTextInputLayoutw"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                    app:boxBackgroundColor="@color/secondaryTextColor"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:hint="Hourly Rate"
-                    android:padding="10dp"/>
+                    android:layout_height="wrap_content">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/rateEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Enter Rate per Hour"
+                        android:fontFamily="@font/amaranth"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
 
             <Button
                 style="@style/Widget.MaterialComponents.Button"
@@ -201,6 +210,7 @@
                 android:layout_width="match_parent"
                 android:id="@+id/createProfileButton"
                 android:text="create profile"
+                android:fontFamily="@font/amaranth"
                 android:background="@color/secondaryColor"
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="20dp"
