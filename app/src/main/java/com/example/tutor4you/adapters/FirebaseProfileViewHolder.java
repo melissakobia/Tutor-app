@@ -2,7 +2,11 @@ package com.example.tutor4you.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -21,6 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.parceler.Parcels;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class FirebaseProfileViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -31,6 +36,8 @@ public class FirebaseProfileViewHolder extends RecyclerView.ViewHolder implement
     TextView tutorNameTextView ;
     TextView rateTextView ;
     TextView educationLevelTextView;
+    ImageView profImage;
+    Profile mProfile;
 
     public FirebaseProfileViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -39,6 +46,9 @@ public class FirebaseProfileViewHolder extends RecyclerView.ViewHolder implement
        tutorNameTextView =  itemView.findViewById(R.id.textViewTutorName1);
        educationLevelTextView  = itemView.findViewById(R.id.textViewEducationLevel1);
        rateTextView  = itemView.findViewById(R.id.textViewRate1);
+       profImage = itemView.findViewById(R.id.imageViewProfile);
+
+
 
        itemView.setOnClickListener(this);
     }
@@ -54,6 +64,15 @@ public class FirebaseProfileViewHolder extends RecyclerView.ViewHolder implement
 
     public void setRate(int rate) {
         rateTextView.setText(Integer.toString(rate));
+    }
+
+    public void setProfileImage (String url) {
+        try {
+            Bitmap imageBitmap = decodeFromFirebaseBase64(url);
+            profImage.setImageBitmap(imageBitmap);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -81,5 +100,10 @@ public class FirebaseProfileViewHolder extends RecyclerView.ViewHolder implement
             }
         });
 
+    }
+
+    public static Bitmap decodeFromFirebaseBase64(String image) throws IOException {
+        byte[] decodedByteArray = android.util.Base64.decode(image, Base64.DEFAULT);
+        return BitmapFactory.decodeByteArray(decodedByteArray, 0, decodedByteArray.length);
     }
 }
