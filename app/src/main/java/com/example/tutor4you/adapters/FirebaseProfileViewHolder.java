@@ -58,12 +58,12 @@ public class FirebaseProfileViewHolder extends RecyclerView.ViewHolder implement
         tutorNameTextView.setText(tutorName);
     }
 
-    public void setEducationLevel(String educationLevel) {
-        educationLevelTextView.setText(educationLevel);
+    public void setSpecialization(String specialization) {
+        educationLevelTextView.setText(specialization);
     }
 
     public void setRate(int rate) {
-        rateTextView.setText(Integer.toString(rate));
+        rateTextView.setText(String.format("Kshs %d",  rate));
     }
 
     public void setProfileImage (String url) {
