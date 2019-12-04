@@ -15,6 +15,7 @@ public class Profile {
     private int rate;
     private String tutorProfileUrl;
     List <Profile> profiles;
+    private String pushID;
 
     public Profile() {
     }
@@ -90,6 +91,14 @@ public class Profile {
     public Profile getPosition (int position) {
         return profiles.get(position);
 
+    }
+
+    public String getPushID() {
+        return pushID;
+    }
+
+    public void setPushID(String pushID) {
+        this.pushID = pushID;
     }
 
 
