@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tutor4you.R;
+import com.google.firebase.auth.FirebaseAuth;
 import com.shantanudeshmukh.linkedinsdk.helpers.LinkedInUser;
 
 import java.io.InputStream;
@@ -88,8 +89,7 @@ public class TutorDashboardActivity extends AppCompatActivity implements View.On
         }
 
         else if (v == logout ) {
-            Intent intent = new Intent(TutorDashboardActivity.this,MainActivity.class);
-            startActivity(intent);
+            logout();
         }
     }
 
@@ -147,5 +147,16 @@ public class TutorDashboardActivity extends AppCompatActivity implements View.On
             imageView.setImageBitmap(result);
         }
 
+
     }
+
+    private void logout() {
+        FirebaseAuth.getInstance().signOut();
+
+        Intent intent = new Intent(TutorDashboardActivity.this, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
+    }
+
 }
