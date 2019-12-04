@@ -42,6 +42,8 @@ public class EducationLevelActivity extends AppCompatActivity {
         setContentView(R.layout.activity_education_level);
         ButterKnife.bind(this);
 
+
+
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -61,17 +63,7 @@ public class EducationLevelActivity extends AppCompatActivity {
             }
         };
 
-//        levelData = new ArrayList<>();
-//
-//        levelData.add(new EducationLevel("Kindergarten", R.drawable.ic_iconfinder_board));
-//        levelData.add(new EducationLevel("Primary", R.drawable.ic_iconfinder_set_of_three_books));
-//        levelData.add(new EducationLevel("Secondary", R.drawable.ic_city_highschool));
-//        levelData.add(new EducationLevel("University", R.drawable.ic_building_education_school));
-//
-//
-//        EducationListAdapter myAdapter = new EducationListAdapter( levelData, EducationLevelActivity.this);
-//        recyclerView.setLayoutManager(new GridLayoutManager(EducationLevelActivity.this, 2));
-//        recyclerView.setAdapter(myAdapter);
+
 
         bottomNav.setOnNavigationItemSelectedListener(navListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFragment).addToBackStack(null).commit();
@@ -96,16 +88,9 @@ public class EducationLevelActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-
-
-
             switch (item.getItemId()) {
                 case R.id.nav_home:
                     selectedFragment = new StudentHomeFragment();
-                    break;
-
-                case R.id.nav_favourite:
-                    selectedFragment = new MyTutorsFragment();
                     break;
 
                 case R.id.nav_search:
@@ -119,6 +104,7 @@ public class EducationLevelActivity extends AppCompatActivity {
             }
 
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFragment).addToBackStack(null).commit();
+
 
             return true;
 
@@ -149,5 +135,9 @@ public class EducationLevelActivity extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
+    }
+
+    public void setActionBarTitle(String title) {
+        getSupportActionBar().setTitle(title);
     }
 }
