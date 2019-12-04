@@ -46,8 +46,12 @@ public class TutorSearchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
+        getActivity().setTitle("Tutors");
         view =  inflater.inflate(R.layout.fragment_tutor_search, container, false);
         recyclerView = view.findViewById(R.id.tutorListRecyclerView) ;
+
+
 
         databaseReference = FirebaseDatabase.getInstance()
                 .getReference(Constants.FIREBASE_CHILD_PROFILE);
@@ -90,7 +94,7 @@ public class TutorSearchFragment extends Fragment {
             protected void onBindViewHolder(@NonNull FirebaseProfileViewHolder holder, int position, @NonNull Profile profile) {
 
                 holder.setTutorName(profile.getTutorName());
-                holder.setEducationLevel(profile.getEducationLevel());
+                holder.setSpecialization(profile.getSpecialization());
                 holder.setRate(profile.getRate());
                 holder.setProfileImage(profile.getTutorProfileUrl());
 
@@ -102,6 +106,7 @@ public class TutorSearchFragment extends Fragment {
         divider.setDrawable(getContext().getResources().getDrawable(R.drawable.divider));
         recyclerView.addItemDecoration(divider);
         recyclerView.setAdapter(mFirebaseAdapter);
+
 
 
 
